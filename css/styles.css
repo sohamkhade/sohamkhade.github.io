@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+
+.navbar-transparent {
+    background-color: rgba(0, 0, 0, 0.1); /* Adjust transparency here */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* Ensures it stays on top */
+  }
+
+/* Example for all buttons in the flex container */
+.btn-nav {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* Smooth transition */
+}
+
+/* Apply hover effect to enlarge the button */
+.btn-nav:hover {
+    transform: scale(1.2);
+    /* Enlarge to 110% */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Optional shadow */
+}
+
+.bg {
+    background-image: url("../img/img_girl.jpg");
+    background-image: url("../img/coding-wallpaper.jpg");
+    height: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* opacity: 90%; */
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+
+}
+
+.typed-cursor {
+    font-size: 1.5rem;
+    color: #333;
+  }
