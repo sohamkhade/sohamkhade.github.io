@@ -65,12 +65,7 @@ html {
 
 .menu-button{
     position: absolute;
-    z-index: 1; /* Sit on top */
-    transition: transform .2s;
-}
-.menu-button:hover{
-    transform: scale(1.2);
-    /* border: 1px solid white; */
+    /* z-index: 1; Sit on top */
 }
 
 /* Front Page CSS */

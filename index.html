@@ -18,18 +18,20 @@
 
 	<!-- Navigation Bar -->
 	<div id="myNav" class="overlay">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="#" class="closebtn" onclick="closeNav()">&times;</a>
 		<div class="overlay-content">
 			<a href="#home">Home</a>
-			<a href="#">About</a>
-			<a href="#">Projects</a>
-			<a href="#">Contact</a>
+			<a href="#about">About</a>
+			<a href="#projects">Projects</a>
+			<a href="#contact">Contact</a>
 		</div>
 	</div>
-
-	<span class = "menu-button ms-4 mt-4" style="font-size:3rem;cursor:pointer;color:white;" onclick="openNav()">
-		<i class="bi bi-list"></i>
-	</span>
+	<div class="d-flex w-100">
+		<span class = "menu-button ps-3 w-100 bg-black opacity-75">
+			<i style="cursor: pointer; font-size: 3rem;" class="bi bi-list text-white"  onclick="openNav()"></i>
+		</span>
+	</div>
+	
 
 	<!-- Front Page -->
 	<div class="bg" id="Home">
