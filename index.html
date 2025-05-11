@@ -1,87 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Soham Khade</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      background: #000;
-      color: white;
-      font-family: Arial, sans-serif;
       overflow: hidden;
+      background-color: #000;
+      font-family: Arial, sans-serif;
     }
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
+
     .content {
-      position: relative;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
-      top: 40%;
-      font-size: 1.5rem;
+      color: white;
+      font-size: 2rem;
+      opacity: 0;
+    }
+
+    /* Responsive Font Sizes */
+    @media (min-width: 768px) {
+      .content {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .content {
+        font-size: 3rem;
+      }
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background-color: white;
+      width: 10px;
+      height: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .loader {
+      transform: rotateZ(45deg);
+      perspective: 1000px;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      color: #fff;
+    }
+
+    @media (min-width: 768px) {
+      .loader {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .loader {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    .loader:before,
+    .loader:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: inherit;
+      height: inherit;
+      border-radius: 50%;
+      transform: rotateX(70deg);
+      animation: 1s spin linear infinite;
+    }
+
+    .loader:after {
+      color: #FF3D00;
+      transform: rotateY(70deg);
+      animation-delay: .4s;
+    }
+
+    @keyframes spin {
+      0%, 100% {
+        box-shadow: .2em 0px 0 0px currentcolor;
+      }
+      12% {
+        box-shadow: .2em .2em 0 0 currentcolor;
+      }
+      25% {
+        box-shadow: 0 .2em 0 0px currentcolor;
+      }
+      37% {
+        box-shadow: -.2em .2em 0 0 currentcolor;
+      }
+      50% {
+        box-shadow: -.2em 0 0 0 currentcolor;
+      }
+      62% {
+        box-shadow: -.2em -.2em 0 0 currentcolor;
+      }
+      75% {
+        box-shadow: 0px -.2em 0 0 currentcolor;
+      }
+      87% {
+        box-shadow: .2em -.2em 0 0 currentcolor;
+      }
     }
   </style>
 </head>
 <body>
-  <div id="particles-js"></div>
-  <div class="content">
-    <p>Redirecting to portfolio in 5 seconds...</p>
-    <p>If not redirected, <a href="https://portfolio-nkhtbr7as-soham-khades-projects.vercel.app" style="color: #00ffff;">click here</a>.</p>
-  </div>
 
-  <!-- Particles.js library -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <span class="loader content"></span>
 
-  <!-- Particle config -->
   <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 80 },
-        "color": { "value": "#ffffff" },
-        "shape": { "type": "circle" },
-        "opacity": {
-          "value": 0.5,
-          "random": false
-        },
-        "size": {
-          "value": 3,
-          "random": true
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#ffffff",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 3,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "bounce": false
-        }
-      },
-      "interactivity": {
-        "events": {
-          "onhover": { "enable": true, "mode": "repulse" },
-          "onclick": { "enable": true, "mode": "push" }
-        }
-      },
-      "retina_detect": true
+    // Number of particles
+    const particleCount = 50;
+    const particles = [];
+
+    // Create particle elements
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      document.body.appendChild(particle);
+      particles.push(particle);
+    }
+
+    // Random color function
+    function randomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    // Anime.js animation for particles
+    anime({
+      targets: particles,
+      translateX: () => [anime.random(0, window.innerWidth), anime.random(0, window.innerWidth)],
+      translateY: () => [anime.random(0, window.innerHeight), anime.random(0, window.innerHeight)],
+      scale: [0, 1],
+      backgroundColor: () => randomColor(),
+      easing: 'easeInOutQuad',
+      duration: 5000,
+      delay: anime.stagger(100),
+      loop: true
+    });
+
+    // Fade in content after 1 second
+    anime({
+      targets: '.content',
+      opacity: [0, 1],
+      duration: 2000,
+      easing: 'easeInOutQuad',
+      delay: 1000
     });
 
     // Redirect after 5 seconds
     setTimeout(() => {
-      window.location.href = "https://portfolio-nkhtbr7as-soham-khades-projects.vercel.app";
+      window.location.href = 'https://portfolio-nkhtbr7as-soham-khades-projects.vercel.app';
     }, 5000);
   </script>
+
 </body>
 </html>
