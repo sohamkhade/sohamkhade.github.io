@@ -3,10 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="0; URL='https://portfolio-nkhtbr7as-soham-khades-projects.vercel.app'" />
+  <title>Soham Khade</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+      color: white;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .content {
+      position: relative;
+      text-align: center;
+      top: 40%;
+      font-size: 1.5rem;
+    }
+  </style>
 </head>
 <body>
-  <p>If you are not redirected, <a href="https://portfolio-nkhtbr7as-soham-khades-projects.vercel.app">click here</a>.</p>
+  <div id="particles-js"></div>
+  <div class="content">
+    <p>Redirecting to portfolio in 5 seconds...</p>
+    <p>If not redirected, <a href="https://portfolio-nkhtbr7as-soham-khades-projects.vercel.app" style="color: #00ffff;">click here</a>.</p>
+  </div>
+
+  <!-- Particles.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <!-- Particle config -->
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80 },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": {
+          "value": 0.5,
+          "random": false
+        },
+        "size": {
+          "value": 3,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 3,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" }
+        }
+      },
+      "retina_detect": true
+    });
+
+    // Redirect after 5 seconds
+    setTimeout(() => {
+      window.location.href = "https://portfolio-nkhtbr7as-soham-khades-projects.vercel.app";
+    }, 5000);
+  </script>
 </body>
 </html>
